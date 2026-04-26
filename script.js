@@ -58,9 +58,12 @@ function animate() {
         const y = centerY + Math.sin(p.angle) * p.radius;
 
         ctx.beginPath();
-        ctx.arc(x, y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsl(${p.color}, 80%, 60%)`;
-        ctx.fill();
+		ctx.arc(centerX, centerY, 40, 0, Math.PI * 2); // ৪০ পিক্সেলের একটি গহ্বর
+		ctx.fillStyle = "black";
+		ctx.shadowBlur = 50; 
+		ctx.shadowColor = "black"; 
+		ctx.fill();
+		ctx.shadowBlur = 0; // শ্যাডো রিসেট
 
         // কণা কেন্দ্রে পৌঁছালে আবার বাইরে পাঠিয়ে দেওয়া
         if (p.radius < 5) {
