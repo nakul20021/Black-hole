@@ -99,8 +99,8 @@ function animate() {
     // ইভেন্ট হরাইজন (গহ্বরের চারপাশের হালকা রিং বা আভা)
     ctx.beginPath();
     ctx.arc(centerX, centerY, 62, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.08)"; // খুব হালকা আলো
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.01)"; // খুব হালকা আলো
+    ctx.lineWidth = 0.3;
     ctx.stroke();
 
     // ব্ল্যাক হোলের গহ্বর (রেডিয়াল গ্রেডিয়েন্ট দিয়ে শুষে নেওয়ার মতো ভাব)
