@@ -57,10 +57,17 @@ function animate() {
         const x = centerX + Math.cos(p.angle) * p.radius;
         const y = centerY + Math.sin(p.angle) * p.radius;
 
-        ctx.beginPath();
-        ctx.arc(x, y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsl(${p.color}, 80%, 60%)`;
-        ctx.fill();
+        // ৩. শুধুমাত্র ব্ল্যাক হোল (গ্রেডিয়েন্ট ছাড়া সলিড কালো)
+	    ctx.beginPath();
+	    ctx.arc(centerX, centerY, 55, 0, Math.PI * 2); // সাইজ একটু কমিয়ে ৫৫ করতে পারেন
+	    ctx.fillStyle = "black"; // একদম সলিড কালো
+    
+	    // গহ্বরের গভীরতা বাড়ানোর জন্য শ্যাডো
+ 	   ctx.shadowBlur = 60; 
+ 	   ctx.shadowColor = "black";
+	    ctx.fill();
+    
+ 	   ctx.shadowBlur = 0; // রিসেট
 
         // কণা গহ্বরের খুব কাছে পৌঁছালে আবার বাইরে পাঠিয়ে দেওয়া (গহ্বরের ভেতরে হারাবে)
         if (p.radius < 40) {
@@ -94,14 +101,7 @@ function animate() {
         }
     });
 
-    // ৩. ব্ল্যাক হোল ও ইভেন্ট হরাইজন তৈরি (সবার উপরে থাকার জন্য এটি শেষে)
     
-    // ইভেন্ট হরাইজন (গহ্বরের চারপাশের হালকা রিং বা আভা)
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, 62, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.08)"; // খুব হালকা আলো
-    ctx.lineWidth = 2;
-    ctx.stroke();
 
     // ব্ল্যাক হোলের গহ্বর (রেডিয়াল গ্রেডিয়েন্ট দিয়ে শুষে নেওয়ার মতো ভাব)
     const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 60);
