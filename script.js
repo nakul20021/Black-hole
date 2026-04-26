@@ -33,7 +33,7 @@ for (let i = 0; i < particleCount; i++) {
 }
 
 // নাম কণা (Text Particles) তৈরি
-for (let i = 0; i < textCount; i++) {
+for (let i = 0; i < textCobnunt; i++) {
     textParticles.push({
         text: "Nakul",
         angle: Math.random() * Math.PI * 2,
