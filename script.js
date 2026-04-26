@@ -37,7 +37,14 @@ function animate() {
             p.radius = Math.random() * 400 + 100;
         }
     });
+	// টেক্সটের স্টাইল সেট করা
+ctx.fillStyle = "white"; // নামের রঙ
+ctx.font = "bold 30px Arial"; // ফন্ট সাইজ এবং টাইপ
+ctx.textAlign = "center"; // মাঝখানে রাখার জন্য
 
+// ব্ল্যাকহোলের ঠিক মাঝখানে নাম লিখবে
+ctx.fillText("Nakul", centerX, centerY);
+    
     requestAnimationFrame(animate);
 }
 
