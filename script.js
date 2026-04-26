@@ -1,21 +1,21 @@
 const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d"); //Built by Nakul Chandro
 
-// ক্যানভাস সাইজ উইন্ডোর সমান করা
+// ক্যানভাস সাইজ উইন্ডোর সমান করা //Built by Nakul Chandro
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let centerX = canvas.width / 2;
 let centerY = canvas.height / 2;
 
-// উইন্ডো রিসাইজ করলে সেন্টার ঠিক করা
+// উইন্ডো রিসাইজ করলে সেন্টার ঠিক করা //Built by Nakul Chandro
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     centerX = canvas.width / 2;
     centerY = canvas.height / 2;
 });
-
+//Built by Nakul Chandro
 const particles = [];
 const textParticles = [];
 const particleCount = 400;
@@ -30,7 +30,7 @@ for (let i = 0; i < particleCount; i++) {
         size: Math.random() * 2 + 0.5,
         color: Math.random() * 360
     });
-}
+} //Built by Nakul Chandro
 
 // নাম কণা (Text Particles) তৈরি
 for (let i = 0; i < textCount; i++) {
@@ -41,7 +41,7 @@ for (let i = 0; i < textCount; i++) {
         speed: Math.random() * 0.01 + 0.002, // টেক্সট কণা একটু ধীরে ঘুরবে
         fontSize: Math.random() * 8 + 10,     // ১০px থেকে ১৮px এর মধ্যে
         hue: Math.random() * 360
-    });
+    }); //Built By Nakul Chandro
 }
 
 function animate() {
@@ -60,7 +60,7 @@ function animate() {
         ctx.beginPath();
         ctx.arc(x, y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `hsl(${p.color}, 80%, 60%)`;
-        ctx.fill();
+        ctx.fill(); // Built By Nakul Chandro
 
         // কণা গহ্বরের খুব কাছে পৌঁছালে আবার বাইরে পাঠিয়ে দেওয়া (গহ্বরের ভেতরে হারাবে)
         if (p.radius < 40) {
@@ -73,7 +73,7 @@ function animate() {
         tp.angle += tp.speed;
         tp.radius *= 0.997; // নামগুলো একটু ধীরে কেন্দ্রের দিকে যাবে
         tp.hue += 1; // ক্রমাগত রঙ বদলাবে
-
+//Built By Nakul Chandro
         const tx = centerX + Math.cos(tp.angle) * tp.radius;
         const ty = centerY + Math.sin(tp.angle) * tp.radius;
 
@@ -101,14 +101,14 @@ function animate() {
     ctx.arc(centerX, centerY, 62, 0, Math.PI * 2);
     ctx.strokeStyle = "rgba(255, 255, 255, 0.01)"; // খুব হালকা আলো
     ctx.lineWidth = 0.3;
-    ctx.stroke();
+    ctx.stroke(); //Built By Nakul Chandro
 
     // ব্ল্যাক হোলের গহ্বর (রেডিয়াল গ্রেডিয়েন্ট দিয়ে শুষে নেওয়ার মতো ভাব)
     const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 60);
     gradient.addColorStop(0, 'black');        // কেন্দ্র একদম কালো
     gradient.addColorStop(0.7, 'black');      // মাঝের অংশও কালো
     gradient.addColorStop(1, 'transparent');  // প্রান্তে এসে মিশে যাবে
-
+//Built By Nakul Chandro
     ctx.beginPath();
     ctx.arc(centerX, centerY, 60, 0, Math.PI * 2);
     ctx.fillStyle = gradient;
@@ -125,3 +125,4 @@ function animate() {
 
 // অ্যানিমেশন শুরু
 animate();
+//Built By Nakul Chandro
